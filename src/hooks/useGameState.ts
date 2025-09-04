@@ -1,12 +1,12 @@
 import { useState, useCallback } from "react";
-import { GameState, GameResult } from "@/types/game";
-import { scenarios } from "@/data/scenarios";
+import { GameState, GameResult, Scenario } from "@/types/game";
 import { roles, systems } from "@/data/roles";
 
 export const useGameState = () => {
+  const [selectedScenarios, setSelectedScenarios] = useState<Scenario[]>([]);
   const [gameState, setGameState] = useState<GameState>({
     currentScenario: 0,
-    totalScenarios: scenarios.length,
+    totalScenarios: 0,
     score: 0,
     completedScenarios: [],
     mistakes: 0,
@@ -24,7 +24,8 @@ export const useGameState = () => {
     showResult: false,
   });
 
-  const startGame = useCallback(() => {
+  const startGame = useCallback((scenarios: Scenario[]) => {
+    setSelectedScenarios(scenarios);
     setGameState({
       currentScenario: 0,
       totalScenarios: scenarios.length,
@@ -42,7 +43,7 @@ export const useGameState = () => {
   }, []);
 
   const answerScenario = useCallback((optionId: number) => {
-    const currentScenarioData = scenarios[gameState.currentScenario];
+    const currentScenarioData = selectedScenarios[gameState.currentScenario];
     const isCorrect = optionId === currentScenarioData.correctOptionId;
     
     setCurrentAnswer({
@@ -59,7 +60,7 @@ export const useGameState = () => {
         completedScenarios: [...prev.completedScenarios, prev.currentScenario],
       }));
     }, 2000);
-  }, [gameState.currentScenario]);
+  }, [gameState.currentScenario, selectedScenarios]);
 
   const nextScenario = useCallback(() => {
     if (gameState.currentScenario < gameState.totalScenarios - 1) {
@@ -88,7 +89,7 @@ export const useGameState = () => {
     const rolesUsed = new Set<string>();
     const systemsUsed = new Set<string>();
     
-    scenarios.slice(0, gameState.completedScenarios.length + 1).forEach(scenario => {
+    selectedScenarios.slice(0, gameState.completedScenarios.length + 1).forEach(scenario => {
       scenario.options.forEach(option => {
         if (option.type === 'role') {
           const role = roles.find(r => r.name.toLowerCase() === option.text.toLowerCase());
@@ -114,7 +115,7 @@ export const useGameState = () => {
   const resetGame = useCallback(() => {
     setGameState({
       currentScenario: 0,
-      totalScenarios: scenarios.length,
+      totalScenarios: 0,
       score: 0,
       completedScenarios: [],
       mistakes: 0,
@@ -126,16 +127,18 @@ export const useGameState = () => {
       isCorrect: null,
       showResult: false,
     });
+    setSelectedScenarios([]);
   }, []);
 
   return {
     gameState,
     currentAnswer,
+    selectedScenarios,
     startGame,
     answerScenario,
     nextScenario,
     getGameResult,
     resetGame,
-    currentScenarioData: scenarios[gameState.currentScenario],
+    currentScenarioData: selectedScenarios[gameState.currentScenario],
   };
 };

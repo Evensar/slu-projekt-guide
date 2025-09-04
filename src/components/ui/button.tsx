@@ -20,8 +20,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline transition-smooth",
         success: "bg-success text-success-foreground hover:bg-success/90 shadow-soft transition-smooth",
         warm: "bg-gradient-warm text-accent-foreground hover:shadow-glow transition-smooth",
-        game: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-card transition-bounce transform hover:scale-105",
-        role: "bg-gradient-primary text-primary-foreground hover:shadow-glow transition-bounce transform hover:scale-102 border border-primary/20",
+        game: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-soft transition-smooth",
+        role: "bg-gradient-primary text-primary-foreground hover:bg-primary/90 shadow-soft transition-smooth",
       },
       size: {
         default: "h-10 px-4 py-2",

@@ -7,12 +7,14 @@ import { GameHeader } from "@/components/game/GameHeader";
 import { ScenarioCard } from "@/components/game/ScenarioCard";
 import { GameComplete } from "@/components/game/GameComplete";
 import { RoleCard } from "@/components/game/RoleCard";
+import { ScenarioSelector } from "@/components/game/ScenarioSelector";
 import { GameFAQ } from "@/components/game/GameFAQ";
+import { Scenario } from "@/types/game";
 import { useGameState } from "@/hooks/useGameState";
 import { roles } from "@/data/roles";
 import { Users, BookOpen, ChevronRight, Home } from "lucide-react";
 
-type GameScreen = 'start' | 'playing' | 'complete' | 'roles' | 'faq';
+type GameScreen = 'start' | 'select' | 'playing' | 'complete' | 'roles' | 'faq';
 
 const Index = () => {
   const [currentScreen, setCurrentScreen] = useState<GameScreen>('start');
@@ -28,7 +30,11 @@ const Index = () => {
   } = useGameState();
 
   const handleStartGame = () => {
-    startGame();
+    setCurrentScreen('select');
+  };
+
+  const handleScenariosSelected = (selectedScenarios: Scenario[]) => {
+    startGame(selectedScenarios);
     setCurrentScreen('playing');
   };
 
@@ -81,6 +87,14 @@ const Index = () => {
             </div>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  if (currentScreen === 'select') {
+    return (
+      <div className="min-h-screen bg-gradient-subtle p-4">
+        <ScenarioSelector onScenariosSelected={handleScenariosSelected} />
       </div>
     );
   }
