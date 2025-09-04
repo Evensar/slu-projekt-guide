@@ -43,7 +43,7 @@ export const ScenarioCard = ({
 
   const getOptionVariant = (option: ScenarioOption) => {
     if (option.type === 'role') return 'role';
-    if (option.type === 'system') return 'outline';
+    if (option.type === 'system') return 'secondary';
     return 'game';
   };
 
@@ -80,10 +80,10 @@ export const ScenarioCard = ({
             const isCorrectOption = option.id === scenario.correctOptionId;
             
             let buttonState: 'default' | 'correct' | 'incorrect' = 'default';
-            if (showResult && isSelected) {
-              buttonState = isCorrect ? 'correct' : 'incorrect';
-            } else if (showResult && isCorrectOption && !isSelected) {
+            if (showResult && isCorrectOption) {
               buttonState = 'correct';
+            } else if (showResult && isSelected && !isCorrect) {
+              buttonState = 'incorrect';
             }
             
             return (

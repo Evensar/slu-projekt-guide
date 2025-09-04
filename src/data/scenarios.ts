@@ -7,7 +7,7 @@ export const scenarios: Scenario[] = [
     description: "En institutionschef har en idé och behöver vägledning",
     npc: {
       name: "Institutionschef",
-      message: "Vi behöver ett nytt ärendeflöde för våra handläggare – vad är rätt väg framåt?"
+      message: "Vi behöver ett nytt system för studenternas laborationsdata – vad är rätt väg framåt?"
     },
     options: [
       { id: 1, text: "Kontakta projektkontoret", type: 'action', description: "För behovsanalys och vägledning" },
@@ -23,142 +23,142 @@ export const scenarios: Scenario[] = [
   },
   {
     id: 2,
-    title: "Planera projektet enligt SLU:s arbetssätt",
-    description: "Strukturera projektarbetet enligt etablerade metoder",
+    title: "Planera forskningsdataprojektet",
+    description: "Strukturera ett komplext datahanterings-projekt för forskningsavdelningen",
     npc: {
-      name: "Verksamhetschef",
-      message: "Vi har godkänt projektet - hur strukturerar vi arbetet enligt SLU:s projektmodell?"
+      name: "Forskningschef",
+      message: "Vi ska digitalisera hantering av fältdata från våra försök - hur planerar vi detta projekt?"
     },
     options: [
       { id: 1, text: "Projektledare", type: 'role', description: "Leder projektarbetet enligt SLU:s metodik" },
       { id: 2, text: "Börja direkt med leverans", type: 'action', description: "Hoppa över planeringsfasen" },
-      { id: 3, text: "Kravanalytiker", type: 'role', description: "Fokusera på kravhantering först" }
+      { id: 3, text: "IT-tekniker", type: 'role', description: "Fokusera på teknisk implementation" }
     ],
     correctOptionId: 1,
     feedback: {
-      correct: "Korrekt! Projektledaren strukturerar arbetet i faser (initiering, plan, genomförande, avslut) och rapporterar till styrgrupp.",
-      incorrect: "Nästan! En projektledare behövs för att strukturera arbetet enligt SLU:s projektmodell med rätt milstolpar."
+      correct: "Korrekt! Projektledaren strukturerar arbetet i faser, samordnar alla roller och säkerställer leverans enligt plan.",
+      incorrect: "Nästan! En projektledare behövs för att koordinera alla aspekter - från krav till leverans."
     },
-    learningPoint: "Projektledaren leder mot tid, kostnad och resultat enligt SLU:s projektmetodik."
+    learningPoint: "Projektledaren säkerställer att alla roller samarbetar mot gemensamt mål enligt SLU:s projektmodell."
   },
   {
     id: 3,
-    title: "Krav och användbarhet",
-    description: "Säkerställ att lösningen möter verksamhetens behov",
+    title: "Krav för studentportalen",
+    description: "Förstå vad studenter och lärare verkligen behöver i det nya systemet",
     npc: {
-      name: "Systemförvaltare",
-      message: "Vi behöver förstå exakt vad användarna behöver för att bygga rätt lösning från början."
+      name: "Utbildningsledare",
+      message: "Studenter klagar på nuvarande portal - vad behöver vi veta innan vi bygger en ny?"
     },
     options: [
-      { id: 1, text: "Kravanalytiker", type: 'role', description: "Samlar in och kvalitetssäkrar krav" },
-      { id: 2, text: "Testledare", type: 'role', description: "Planerar testaktiviteter" },
-      { id: 3, text: "Utveckla direkt", type: 'action', description: "Börja koda baserat på antaganden" }
+      { id: 1, text: "Kravanalytiker", type: 'role', description: "Samlar in och analyserar användarbehov" },
+      { id: 2, text: "Utvecklare", type: 'role', description: "Börjar koda nya funktioner" },
+      { id: 3, text: "Projektledare", type: 'role', description: "Sätter upp projektplan" }
     ],
     correctOptionId: 1,
     feedback: {
-      correct: "Rätt! Kravanalytikern säkerställer att verksamhetsbehov fångas upp och blir spårbara från behov till leverans.",
-      incorrect: "Nästan! En kravanalytiker behövs för att samla in behov och säkerställa användbarhet och verksamhetsnytta."
+      correct: "Rätt! Kravanalytikern intervjuar studenter och lärare för att förstå riktiga behov innan utveckling.",
+      incorrect: "Nästan! Först behöver vi förstå vad användarna verkligen behöver - kravanalytikern gör detta."
     },
-    learningPoint: "Fokus på verksamhetsbehov och spårbarhet från behov till leverans."
+    learningPoint: "Utan tydliga krav bygger vi fel sak - kravanalytikern säkerställer användarfokus."
   },
   {
     id: 4,
-    title: "Test och kvalitet",
-    description: "Säkerställ kvalitet innan driftsättning",
+    title: "Testa forskningsapplikationen",
+    description: "Säkerställ att systemet fungerar för forskares kritiska arbete",
     npc: {
-      name: "IT-arkitekt",
-      message: "Vi måste vara säkra på att systemet fungerar korrekt innan vi lanserar det till alla användare."
+      name: "Forskningsledare",
+      message: "Denna app hanterar åratal av forskning - hur säkerställer vi att allt fungerar perfekt?"
     },
     options: [
-      { id: 1, text: "Testledare", type: 'role', description: "Planerar och koordinerar testaktiviteter" },
-      { id: 2, text: "Lansera direkt", type: 'action', description: "Testa i produktion" },
-      { id: 3, text: "Projektledare", type: 'role', description: "Hantera projektledning" }
+      { id: 1, text: "Testledare", type: 'role', description: "Planerar och koordinerar alla testaktiviteter" },
+      { id: 2, text: "Lansera direkt", type: 'action', description: "Testa med riktiga forskare" },
+      { id: 3, text: "Kravanalytiker", type: 'role', description: "Analysera kraven igen" }
     ],
     correctOptionId: 1,
     feedback: {
-      correct: "Korrekt! Testledaren planerar testfall, koordinerar testare och säkerställer kvalitet före driftsättning.",
-      incorrect: "Nästan! En testledare behövs för att planera test och definiera acceptanskriterier med rätt användare."
+      correct: "Korrekt! Testledaren planerar systematisk testning med forskare och säkerställer kvalitet.",
+      incorrect: "Nästan! Forskningsdata är kritisk - testledaren säkerställer grundlig testning innan lansering."
     },
-    learningPoint: "Testplan, kvalitetskriterier och involvering av rätta användare."
+    learningPoint: "Testledaren involverar riktiga användare och planerar olika typer av tester."
   },
   {
     id: 5,
-    title: "Inköp & fakturor (Proceedo)",
-    description: "Hantera inköp enligt SLU:s rutiner",
+    title: "Överlämning till förvaltning",
+    description: "Säkerställ att systemet tas om hand efter projektets slut",
     npc: {
-      name: "Ekonomiadministratör",
-      message: "Vi behöver ny mjukvara till projektet - får jag beställa direkt eller ska det gå via Proceedo?"
+      name: "Verksamhetschef",
+      message: "Projektet närmar sig slutet - vem ska ta över ansvaret för systemet framöver?"
     },
     options: [
-      { id: 1, text: "Beställ i Proceedo", type: 'system', description: "Följ SLU:s inköpsrutiner" },
-      { id: 2, text: "Köp direkt", type: 'action', description: "Gör direktköp utan system" },
-      { id: 3, text: "Vänta på godkännande", type: 'action', description: "Skjut upp beslutet" }
+      { id: 1, text: "Förvaltningsledare", type: 'role', description: "Tar över långsiktigt ansvar" },
+      { id: 2, text: "Projektledare fortsätter", type: 'action', description: "Behåll projektorganisation" },
+      { id: 3, text: "Utvecklarna", type: 'role', description: "De som byggt systemet" }
     ],
     correctOptionId: 1,
     feedback: {
-      correct: "Rätt! Beställningar ska göras i Proceedo så vi följer avtal och får rätt attestflöde.",
-      incorrect: "Nästan! För inköp använder vi Proceedo för att följa ramavtal och LOU-regler. Prova att klicka där först."
+      correct: "Rätt! Förvaltningsledaren säkerställer drift, support och vidareutveckling efter projektet.",
+      incorrect: "Nästan! Efter projektet behövs en förvaltningsledare för långsiktig ansvar och utveckling."
     },
-    learningPoint: "Beställningar och leverantörsfakturor hanteras i Proceedo för att följa avtal."
+    learningPoint: "Förvaltningsledaren säkerställer att projektets resultat lever vidare och utvecklas."
   },
   {
     id: 6,
-    title: "Tid & ekonomi (UBW)",
-    description: "Registrera tid och följa upp ekonomi",
+    title: "Sammarbete mellan roller",
+    description: "Koordinera arbetet mellan olika projektroller",
     npc: {
-      name: "Projektmedarbetare",
-      message: "Jag har arbetat med projektet hela veckan - var ska jag registrera mina arbetstimmar?"
+      name: "Projektledare",
+      message: "Kravanalytikern och testledaren behöver samarbeta - hur strukturerar vi detta bäst?"
     },
     options: [
-      { id: 1, text: "Registrera tid i UBW", type: 'system', description: "SLU:s system för tidrapportering" },
-      { id: 2, text: "Skicka mejl", type: 'action', description: "Informera projektledaren via mejl" },
-      { id: 3, text: "Registrera i Primula", type: 'system', description: "Reseräkningssystemet" }
+      { id: 1, text: "Skapa gemensamma möten", type: 'action', description: "Regelbunden avstämning mellan rollerna" },
+      { id: 2, text: "Låt dem jobba separat", type: 'action', description: "Minimal koordinering" },
+      { id: 3, text: "Vänta till slutet", type: 'action', description: "Koordinera först vid leverans" }
     ],
     correctOptionId: 1,
     feedback: {
-      correct: "Korrekt! UBW är master-ERP för tid och ekonomispårning på SLU.",
-      incorrect: "Nästan! Arbetstid registreras i UBW som är SLU:s huvudsystem för tid och ekonomi."
+      correct: "Rätt! Krav och test måste samarbeta kontinuerligt för att säkerställa kvalitet.",
+      incorrect: "Nästan! Testledaren behöver förstå kraven tidigt för att planera rätt tester."
     },
-    learningPoint: "UBW är master-ERP för tid och ekonomispårning."
+    learningPoint: "Framgångsrika projekt kräver nära samarbete mellan alla roller."
   },
   {
     id: 7,
-    title: "Resor & kvitton (Primula)",
-    description: "Hantera reseräkningar korrekt",
+    title: "Användarinvolvering i projekt",
+    description: "Säkerställ att slutanvändarna är engagerade genom hela projektet",
     npc: {
-      name: "Forskningshandläggare",
-      message: "Vi ska ha en workshop i Stockholm - hur gör vi med resor och kvitton efteråt?"
+      name: "Avdelningschef",
+      message: "Våra medarbetare ska använda det nya systemet - hur involverar vi dem i projektet?"
     },
     options: [
-      { id: 1, text: "Reseräkning i Primula", type: 'system', description: "SLU:s system för reseräkningar" },
-      { id: 2, text: "Registrera i UBW", type: 'system', description: "Tid- och ekonomisystemet" },
-      { id: 3, text: "Skicka kvitton via mejl", type: 'action', description: "Mejla ekonomiavdelningen" }
+      { id: 1, text: "Kravanalytiker + Testledare", type: 'role', description: "Båda rollerna involverar användare" },
+      { id: 2, text: "Bara projektledaren", type: 'role', description: "Håll det enkelt" },
+      { id: 3, text: "Vänta till slutet", type: 'action', description: "Visa färdig produkt" }
     ],
     correctOptionId: 1,
     feedback: {
-      correct: "Korrekt! Reseräkningar hanteras i Primula. Spara kvitton digitalt och bifoga i ärendet.",
-      incorrect: "Nästan! Primula används för reseräkningar och ersättningar. Där hanteras alla kvitton digitalt."
+      correct: "Perfekt! Kravanalytikern samlar behov från användare och testledaren låter dem testa.",
+      incorrect: "Nästan! Användarna behöver vara med från början - både i krav och test."
     },
-    learningPoint: "Reseräkningar och ersättningar hanteras digitalt i Primula."
+    learningPoint: "Lyckat projekt = aktiva slutanvändare genom hela processen."
   },
   {
     id: 8,
-    title: "Diarieföring & beslut (Public 360)",
-    description: "Dokumentera viktiga beslut korrekt",
+    title: "Hantera förändringar under projekt",
+    description: "Verksamheten vill ändra krav mitt i projektet",
     npc: {
-      name: "Styrgruppsledamot",
-      message: "Vi har fattat viktiga beslut i styrgruppen - hur säkerställer vi att protokollet blir spårbart?"
+      name: "Verksamhetsrepresentant",
+      message: "Vi insåg att vi behöver ytterligare funktionalitet - kan vi lägga till detta nu?"
     },
     options: [
-      { id: 1, text: "Diarieför i Public 360", type: 'system', description: "SLU:s ärendehanteringssystem" },
-      { id: 2, text: "Spara lokalt", type: 'action', description: "Förvara på projektområdet" },
-      { id: 3, text: "Mejla till alla", type: 'action', description: "Skicka protokollet via mejl" }
+      { id: 1, text: "Projektledare + Kravanalytiker", type: 'role', description: "Bedöm påverkan tillsammans" },
+      { id: 2, text: "Säg ja direkt", type: 'action', description: "Lägg till utan analys" },
+      { id: 3, text: "Vänta till nästa projekt", type: 'action', description: "Ingen förändring nu" }
     ],
     correctOptionId: 1,
     feedback: {
-      correct: "Bra! Diarieför styrgruppsprotokoll i Public 360 så blir beslut spårbara och korrekt arkiverade.",
-      incorrect: "Nästan! Public 360 används för diarieföring av protokoll och beslut för att säkerställa spårbarhet."
+      correct: "Rätt! Projektledaren och kravanalytikern bedömer tillsammans påverkan på tid, kostnad och kvalitet.",
+      incorrect: "Nästan! Förändringar behöver analyseras - projektledare och kravanalytiker gör detta tillsammans."
     },
-    learningPoint: "Beslut och protokoll diarieförs i Public 360 för spårbarhet."
+    learningPoint: "Alla förändringar måste analyseras för påverkan på projektets mål."
   }
 ];
