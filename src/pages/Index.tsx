@@ -1,11 +1,183 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { GameStart } from "@/components/game/GameStart";
+import { GameHeader } from "@/components/game/GameHeader";
+import { ScenarioCard } from "@/components/game/ScenarioCard";
+import { GameComplete } from "@/components/game/GameComplete";
+import { RoleCard } from "@/components/game/RoleCard";
+import { GameFAQ } from "@/components/game/GameFAQ";
+import { useGameState } from "@/hooks/useGameState";
+import { roles } from "@/data/roles";
+import { Users, BookOpen, ChevronRight, Home } from "lucide-react";
+
+type GameScreen = 'start' | 'playing' | 'complete' | 'roles' | 'faq';
 
 const Index = () => {
+  const [currentScreen, setCurrentScreen] = useState<GameScreen>('start');
+  const { 
+    gameState, 
+    currentAnswer, 
+    startGame, 
+    answerScenario, 
+    nextScenario, 
+    getGameResult, 
+    resetGame,
+    currentScenarioData 
+  } = useGameState();
+
+  const handleStartGame = () => {
+    startGame();
+    setCurrentScreen('playing');
+  };
+
+  const handleAnswerScenario = (optionId: number) => {
+    answerScenario(optionId);
+  };
+
+  const handleNextScenario = () => {
+    if (gameState.currentScenario >= gameState.totalScenarios - 1) {
+      setCurrentScreen('complete');
+    } else {
+      nextScenario();
+    }
+  };
+
+  const handleRestart = () => {
+    resetGame();
+    setCurrentScreen('start');
+  };
+
+  const handleShowRoles = () => {
+    setCurrentScreen('roles');
+  };
+
+  const handleShowFAQ = () => {
+    setCurrentScreen('faq');
+  };
+
+  const handleBackToStart = () => {
+    setCurrentScreen('start');
+  };
+
+  if (currentScreen === 'start') {
+    return (
+      <div>
+        <GameStart onStartGame={handleStartGame} />
+        
+        {/* Navigation Footer */}
+        <div className="bg-background border-t border-border py-4">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="flex flex-wrap justify-center gap-3">
+              <Button variant="outline" size="sm" onClick={handleShowRoles}>
+                <Users className="w-4 h-4 mr-2" />
+                Roller & stöd
+              </Button>
+              <Button variant="outline" size="sm" onClick={handleShowFAQ}>
+                <BookOpen className="w-4 h-4 mr-2" />
+                Frågor & svar
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (currentScreen === 'complete') {
+    return <GameComplete result={getGameResult()} onRestart={handleRestart} />;
+  }
+
+  if (currentScreen === 'roles') {
+    return (
+      <div className="min-h-screen bg-gradient-subtle p-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-6">
+            <Button variant="outline" onClick={handleBackToStart} className="mb-4">
+              <Home className="w-4 h-4 mr-2" />
+              Tillbaka till start
+            </Button>
+            <Card className="shadow-card">
+              <CardContent className="pt-6">
+                <div className="text-center mb-6">
+                  <Badge variant="outline" className="mb-4">
+                    Projektkontorets roller
+                  </Badge>
+                  <h1 className="text-3xl font-bold mb-2">Så kan vi stötta dig</h1>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    Projektkontoret har fyra nyckelroller som kan hjälpa dig genom hela projektlivscykeln
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {roles.map((role) => (
+              <RoleCard key={role.id} role={role} />
+            ))}
+          </div>
+
+          <div className="mt-8">
+            <GameFAQ />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (currentScreen === 'faq') {
+    return (
+      <div className="min-h-screen bg-gradient-subtle p-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-6">
+            <Button variant="outline" onClick={handleBackToStart} className="mb-4">
+              <Home className="w-4 h-4 mr-2" />
+              Tillbaka till start
+            </Button>
+          </div>
+          <GameFAQ />
+        </div>
+      </div>
+    );
+  }
+
+  // Playing state
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gradient-subtle p-4">
+      <div className="max-w-4xl mx-auto">
+        <GameHeader gameState={gameState} />
+        
+        <div className="space-y-6">
+          <ScenarioCard
+            scenario={currentScenarioData}
+            onOptionSelect={handleAnswerScenario}
+            showResult={currentAnswer.showResult}
+            selectedOptionId={currentAnswer.selectedOptionId || undefined}
+            isCorrect={currentAnswer.isCorrect || undefined}
+          />
+          
+          {currentAnswer.showResult && (
+            <div className="text-center animate-fade-in">
+              <Button 
+                onClick={handleNextScenario}
+                variant="warm"
+                size="lg"
+                className="min-w-[200px]"
+              >
+                {gameState.currentScenario >= gameState.totalScenarios - 1 ? (
+                  <>Se resultat</>
+                ) : (
+                  <>
+                    Nästa scenario
+                    <ChevronRight className="w-4 h-4 ml-2" />
+                  </>
+                )}
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
