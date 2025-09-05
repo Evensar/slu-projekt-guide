@@ -1,3 +1,6 @@
+import { Scenario } from '@/types/game';
+import { scenarios as defaultScenarios } from './scenarios';
+
 export interface GameTexts {
   // Header texts
   gameTitle: string;
@@ -42,6 +45,9 @@ export interface GameTexts {
   // Common
   closeButton: string;
   backButton: string;
+  
+  // Scenarios
+  scenarios: Scenario[];
 }
 
 export const defaultGameTexts: GameTexts = {
@@ -88,6 +94,9 @@ export const defaultGameTexts: GameTexts = {
   // Common
   closeButton: "Stäng",
   backButton: "Tillbaka",
+  
+  // Scenarios
+  scenarios: defaultScenarios,
 };
 
 // Hook for managing game texts

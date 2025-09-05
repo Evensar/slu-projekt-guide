@@ -2,14 +2,16 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { scenarios } from "@/data/scenarios";
 import { Scenario } from "@/types/game";
+import { useGameTexts } from "@/data/gameTexts";
 
 interface ScenarioSelectorProps {
   onScenariosSelected: (selectedScenarios: Scenario[]) => void;
 }
 
 export const ScenarioSelector = ({ onScenariosSelected }: ScenarioSelectorProps) => {
+  const { getTexts } = useGameTexts();
+  const scenarios = getTexts().scenarios;
   const [selectedScenarioIds, setSelectedScenarioIds] = useState<number[]>([]);
 
   const handleScenarioToggle = (scenarioId: number) => {

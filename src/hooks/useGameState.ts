@@ -1,8 +1,10 @@
 import { useState, useCallback } from "react";
 import { GameState, GameResult, Scenario } from "@/types/game";
 import { roles, systems } from "@/data/roles";
+import { useGameTexts } from "@/data/gameTexts";
 
 export const useGameState = () => {
+  const { getTexts } = useGameTexts();
   const [selectedScenarios, setSelectedScenarios] = useState<Scenario[]>([]);
   const [gameState, setGameState] = useState<GameState>({
     currentScenario: 0,
@@ -41,6 +43,11 @@ export const useGameState = () => {
       showResult: false,
     });
   }, []);
+
+  const getCurrentScenario = (): Scenario => {
+    const texts = getTexts();
+    return selectedScenarios[gameState.currentScenario] || texts.scenarios[0];
+  };
 
   const answerScenario = useCallback((optionId: number) => {
     const currentScenarioData = selectedScenarios[gameState.currentScenario];
