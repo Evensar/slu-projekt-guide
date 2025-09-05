@@ -9,12 +9,13 @@ import { GameComplete } from "@/components/game/GameComplete";
 import { RoleCard } from "@/components/game/RoleCard";
 import { ScenarioSelector } from "@/components/game/ScenarioSelector";
 import { GameFAQ } from "@/components/game/GameFAQ";
+import { TextEditor } from "@/components/game/TextEditor";
 import { Scenario } from "@/types/game";
 import { useGameState } from "@/hooks/useGameState";
 import { roles } from "@/data/roles";
-import { Users, BookOpen, ChevronRight, Home } from "lucide-react";
+import { Users, BookOpen, ChevronRight, Home, Settings } from "lucide-react";
 
-type GameScreen = 'start' | 'select' | 'playing' | 'complete' | 'roles' | 'faq';
+type GameScreen = 'start' | 'select' | 'playing' | 'complete' | 'roles' | 'faq' | 'textEditor';
 
 const Index = () => {
   const [currentScreen, setCurrentScreen] = useState<GameScreen>('start');
@@ -63,6 +64,10 @@ const Index = () => {
     setCurrentScreen('faq');
   };
 
+  const handleShowTextEditor = () => {
+    setCurrentScreen('textEditor');
+  };
+
   const handleBackToStart = () => {
     setCurrentScreen('start');
   };
@@ -83,6 +88,10 @@ const Index = () => {
               <Button variant="outline" size="sm" onClick={handleShowFAQ}>
                 <BookOpen className="w-4 h-4 mr-2" />
                 Frågor & svar
+              </Button>
+              <Button variant="ghost" size="sm" onClick={handleShowTextEditor}>
+                <Settings className="w-4 h-4 mr-2" />
+                Redigera texter
               </Button>
             </div>
           </div>
@@ -155,6 +164,10 @@ const Index = () => {
         </div>
       </div>
     );
+  }
+
+  if (currentScreen === 'textEditor') {
+    return <TextEditor onClose={handleBackToStart} />;
   }
 
   // Playing state

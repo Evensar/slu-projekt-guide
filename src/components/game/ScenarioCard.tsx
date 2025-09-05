@@ -41,10 +41,8 @@ export const ScenarioCard = ({
     }
   };
 
-  const getOptionVariant = (option: ScenarioOption) => {
-    if (option.type === 'role') return 'role';
-    if (option.type === 'system') return 'secondary';
-    return 'game';
+  const getOptionVariant = () => {
+    return 'game' as const; // Use consistent green color for all options
   };
 
   return (
@@ -89,7 +87,7 @@ export const ScenarioCard = ({
             return (
               <div key={option.id} className="relative">
                 <Button
-                  variant={getOptionVariant(option)}
+                  variant={getOptionVariant()}
                   className={`w-full justify-start text-left h-auto p-4 relative transition-all ${
                     buttonState === 'correct' ? 'ring-2 ring-success bg-success/10' :
                     buttonState === 'incorrect' ? 'ring-2 ring-destructive bg-destructive/10' :
