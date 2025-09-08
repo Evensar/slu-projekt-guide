@@ -2,12 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Play, BookOpen, Users, Target } from "lucide-react";
+import { useGameTexts } from "@/data/gameTexts";
 
 interface GameStartProps {
   onStartGame: () => void;
 }
 
 export const GameStart = ({ onStartGame }: GameStartProps) => {
+  const { getTexts } = useGameTexts();
+  const texts = getTexts();
   return (
     <div className="min-h-screen bg-gradient-subtle flex items-center justify-center p-4">
       <div className="max-w-4xl w-full space-y-6">
@@ -16,15 +19,14 @@ export const GameStart = ({ onStartGame }: GameStartProps) => {
           <CardHeader className="pb-4">
             <div className="mb-4">
               <Badge variant="outline" className="mb-4 animate-bounce-in">
-                SLU Projektkontor
+                {texts.gameTitle}
               </Badge>
             </div>
             <CardTitle className="text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Så stöttar vi dina projekt
+              {texts.gameMainTitle}
             </CardTitle>
             <CardDescription className="text-lg max-w-2xl mx-auto mt-4">
-              Välkommen! Projektkontoret på SLU hjälper dig att nå mål med struktur, metodik och kvalitet. 
-              Klara scenarierna och upptäck vilket stöd du kan få.
+              {texts.gameMainDescription}
             </CardDescription>
           </CardHeader>
           
@@ -34,9 +36,9 @@ export const GameStart = ({ onStartGame }: GameStartProps) => {
                 <div className="bg-primary/10 rounded-full p-3 w-12 h-12 mx-auto flex items-center justify-center">
                   <Target className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-medium">Utbildning & Forskning</h3>
+                <h3 className="font-medium">{texts.featureCard1Title}</h3>
                 <p className="text-sm text-muted-foreground">
-                  Stöd för SLU:s uppdrag inom hållbar utveckling
+                  {texts.featureCard1Description}
                 </p>
               </div>
               
@@ -44,9 +46,9 @@ export const GameStart = ({ onStartGame }: GameStartProps) => {
                 <div className="bg-accent/10 rounded-full p-3 w-12 h-12 mx-auto flex items-center justify-center">
                   <Users className="w-6 h-6 text-accent" />
                 </div>
-                <h3 className="font-medium">Projektledning</h3>
+                <h3 className="font-medium">{texts.featureCard2Title}</h3>
                 <p className="text-sm text-muted-foreground">
-                  Erfarna roller för alla projektfaser
+                  {texts.featureCard2Description}
                 </p>
               </div>
               
@@ -54,9 +56,9 @@ export const GameStart = ({ onStartGame }: GameStartProps) => {
                 <div className="bg-success/10 rounded-full p-3 w-12 h-12 mx-auto flex items-center justify-center">
                   <BookOpen className="w-6 h-6 text-success" />
                 </div>
-                <h3 className="font-medium">Förvaltning</h3>
+                <h3 className="font-medium">{texts.featureCard3Title}</h3>
                 <p className="text-sm text-muted-foreground">
-                  Långsiktig hantering efter leverans
+                  {texts.featureCard3Description}
                 </p>
               </div>
             </div>
@@ -68,7 +70,7 @@ export const GameStart = ({ onStartGame }: GameStartProps) => {
               className="text-lg px-8 py-3 animate-bounce-in"
             >
               <Play className="w-5 h-5 mr-2" />
-              Starta spelet (5-10 min)
+              {texts.startGameButtonText}
             </Button>
           </CardContent>
         </Card>
@@ -78,51 +80,51 @@ export const GameStart = ({ onStartGame }: GameStartProps) => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-primary" />
-              Om spelet
+              {texts.learningGoalsTitle}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="font-medium mb-3">Efter spelet kommer du att:</h3>
+                <h3 className="font-medium mb-3">{texts.learningGoalsSubtitle}</h3>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
-                    Känna till projektkontorets uppdrag och erbjudanden
+                    {texts.learningGoal1}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
-                    Förstå när man kontaktar projektkontoret och vilken roll som hjälper
+                    {texts.learningGoal2}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
-                    Se exempel på samarbete genom projektlivscykeln
+                    {texts.learningGoal3}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
-                    Veta att SLU har etablerade arbetssätt och portföljhantering
+                    {texts.learningGoal4}
                   </li>
                 </ul>
               </div>
               
               <div>
-                <h3 className="font-medium mb-3">Så fungerar spelet:</h3>
+                <h3 className="font-medium mb-3">{texts.howItWorksTitle}</h3>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    8 korta scenarier från vardagliga situationer
+                    {texts.howItWorks1}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    Klicka på rätt stöd för varje scenario
+                    {texts.howItWorks2}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    Få omedelbar återkoppling och lärpunkter
+                    {texts.howItWorks3}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-1">•</span>
-                    Sammanfattning av vad du lärt dig
+                    {texts.howItWorks4}
                   </li>
                 </ul>
               </div>

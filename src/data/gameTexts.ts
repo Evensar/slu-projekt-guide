@@ -36,12 +36,40 @@ export interface GameTexts {
   faqTitle: string;
   faqDescription: string;
   
-  // About Game section
+  // About Game section (detailed)
   aboutGameTitle: string;
   aboutGameDescription: string;
   aboutGameContent: string;
   rolesTitle: string;
   rolesDescription: string;
+  
+  // Game Start page detailed texts
+  gameMainTitle: string;
+  gameMainDescription: string;
+  startGameButtonText: string;
+  
+  // Learning goals section
+  learningGoalsTitle: string;
+  learningGoalsSubtitle: string;
+  learningGoal1: string;
+  learningGoal2: string;
+  learningGoal3: string;
+  learningGoal4: string;
+  
+  // How it works section
+  howItWorksTitle: string;
+  howItWorks1: string;
+  howItWorks2: string;
+  howItWorks3: string;
+  howItWorks4: string;
+  
+  // Feature cards
+  featureCard1Title: string;
+  featureCard1Description: string;
+  featureCard2Title: string;
+  featureCard2Description: string;
+  featureCard3Title: string;
+  featureCard3Description: string;
   
   // Text Editor
   textEditorTitle: string;
@@ -96,12 +124,40 @@ export const defaultGameTexts: GameTexts = {
   faqTitle: "Frågor & svar",
   faqDescription: "Vanliga frågor om projektkontoret och vårt stöd",
   
-  // About Game section
+  // About Game section (detailed)
   aboutGameTitle: "Om spelet",
   aboutGameDescription: "Lär dig om projektkontorets roller och arbetssätt",
   aboutGameContent: "Projektkontoret på SLU hjälper dig att genomföra framgångsrika projekt. Genom strukturerad metodik, tydliga roller och kontinuerlig uppföljning säkerställer vi att dina projekt når sina mål med rätt kvalitet och inom budget.",
   rolesTitle: "Så kan vi stötta dig",
   rolesDescription: "Projektkontoret har fyra nyckelroller som kan hjälpa dig genom hela projektlivscykeln",
+  
+  // Game Start page detailed texts
+  gameMainTitle: "Så stöttar vi dina projekt",
+  gameMainDescription: "Välkommen! Projektkontoret på SLU hjälper dig att nå mål med struktur, metodik och kvalitet. Klara scenarierna och upptäck vilket stöd du kan få.",
+  startGameButtonText: "Starta spelet (5-10 min)",
+  
+  // Learning goals section
+  learningGoalsTitle: "Om spelet",
+  learningGoalsSubtitle: "Efter spelet kommer du att:",
+  learningGoal1: "Känna till projektkontorets uppdrag och erbjudanden",
+  learningGoal2: "Förstå när man kontaktar projektkontoret och vilken roll som hjälper",
+  learningGoal3: "Se exempel på samarbete genom projektlivscykeln",
+  learningGoal4: "Veta att SLU har etablerade arbetssätt och portföljhantering",
+  
+  // How it works section
+  howItWorksTitle: "Så fungerar spelet:",
+  howItWorks1: "8 korta scenarier från vardagliga situationer",
+  howItWorks2: "Klicka på rätt stöd för varje scenario",
+  howItWorks3: "Få omedelbar återkoppling och lärpunkter",
+  howItWorks4: "Sammanfattning av vad du lärt dig",
+  
+  // Feature cards
+  featureCard1Title: "Utbildning & Forskning",
+  featureCard1Description: "Stöd för SLU:s uppdrag inom hållbar utveckling",
+  featureCard2Title: "Projektledning",
+  featureCard2Description: "Erfarna roller för alla projektfaser",
+  featureCard3Title: "Förvaltning",
+  featureCard3Description: "Långsiktig hantering efter leverans",
   
   // Text Editor
   textEditorTitle: "Redigera speltexter",

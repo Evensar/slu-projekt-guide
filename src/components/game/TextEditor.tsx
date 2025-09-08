@@ -274,9 +274,65 @@ export const TextEditor = ({ onClose }: TextEditorProps) => {
             </TabsContent>
 
             <TabsContent value="about" className="space-y-6 mt-6">
+              {/* Main page texts */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Huvudsida</h3>
+                <div className="grid gap-4">
+                  {renderTextInput("gameMainTitle", "Huvudtitel")}
+                  {renderTextInput("gameMainDescription", "Huvudbeskrivning", true)}
+                  {renderTextInput("startGameButtonText", "Starta spel-knapp")}
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Feature cards */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Funktionskort</h3>
+                <div className="grid gap-4">
+                  {renderTextInput("featureCard1Title", "Kort 1 - Titel")}
+                  {renderTextInput("featureCard1Description", "Kort 1 - Beskrivning")}
+                  {renderTextInput("featureCard2Title", "Kort 2 - Titel")}
+                  {renderTextInput("featureCard2Description", "Kort 2 - Beskrivning")}
+                  {renderTextInput("featureCard3Title", "Kort 3 - Titel")}
+                  {renderTextInput("featureCard3Description", "Kort 3 - Beskrivning")}
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Learning goals */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Lärandemål</h3>
+                <div className="grid gap-4">
+                  {renderTextInput("learningGoalsTitle", "Sektion titel")}
+                  {renderTextInput("learningGoalsSubtitle", "Underrubrik")}
+                  {renderTextInput("learningGoal1", "Lärandemål 1")}
+                  {renderTextInput("learningGoal2", "Lärandemål 2")}
+                  {renderTextInput("learningGoal3", "Lärandemål 3")}
+                  {renderTextInput("learningGoal4", "Lärandemål 4")}
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* How it works */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Så fungerar spelet</h3>
+                <div className="grid gap-4">
+                  {renderTextInput("howItWorksTitle", "Sektion titel")}
+                  {renderTextInput("howItWorks1", "Punkt 1")}
+                  {renderTextInput("howItWorks2", "Punkt 2")}
+                  {renderTextInput("howItWorks3", "Punkt 3")}
+                  {renderTextInput("howItWorks4", "Punkt 4")}
+                </div>
+              </div>
+
+              <Separator />
+
               {/* About Game section */}
               <div>
-                <h3 className="text-lg font-semibold mb-4">Om spelet</h3>
+                <h3 className="text-lg font-semibold mb-4">Om spelet (övrig)</h3>
                 <div className="grid gap-4">
                   {renderTextInput("aboutGameTitle", "Titel")}
                   {renderTextInput("aboutGameDescription", "Beskrivning", true)}
