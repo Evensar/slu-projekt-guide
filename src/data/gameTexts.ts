@@ -36,11 +36,22 @@ export interface GameTexts {
   faqTitle: string;
   faqDescription: string;
   
+  // About Game section
+  aboutGameTitle: string;
+  aboutGameDescription: string;
+  aboutGameContent: string;
+  rolesTitle: string;
+  rolesDescription: string;
+  
   // Text Editor
   textEditorTitle: string;
   textEditorDescription: string;
   saveChangesButton: string;
   resetToDefaultButton: string;
+  addOptionButton: string;
+  addScenarioButton: string;
+  removeOptionButton: string;
+  removeScenarioButton: string;
   
   // Common
   closeButton: string;
@@ -85,11 +96,22 @@ export const defaultGameTexts: GameTexts = {
   faqTitle: "Frågor & svar",
   faqDescription: "Vanliga frågor om projektkontoret och vårt stöd",
   
+  // About Game section
+  aboutGameTitle: "Om spelet",
+  aboutGameDescription: "Lär dig om projektkontorets roller och arbetssätt",
+  aboutGameContent: "Projektkontoret på SLU hjälper dig att genomföra framgångsrika projekt. Genom strukturerad metodik, tydliga roller och kontinuerlig uppföljning säkerställer vi att dina projekt når sina mål med rätt kvalitet och inom budget.",
+  rolesTitle: "Så kan vi stötta dig",
+  rolesDescription: "Projektkontoret har fyra nyckelroller som kan hjälpa dig genom hela projektlivscykeln",
+  
   // Text Editor
   textEditorTitle: "Redigera speltexter",
   textEditorDescription: "Här kan du anpassa alla texter som visas i spelet",
   saveChangesButton: "Spara ändringar",
   resetToDefaultButton: "Återställ till standard",
+  addOptionButton: "Lägg till svarsalternativ",
+  addScenarioButton: "Lägg till scenario",
+  removeOptionButton: "Ta bort",
+  removeScenarioButton: "Ta bort scenario",
   
   // Common
   closeButton: "Stäng",

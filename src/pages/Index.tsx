@@ -13,12 +13,15 @@ import { TextEditor } from "@/components/game/TextEditor";
 import { Scenario } from "@/types/game";
 import { useGameState } from "@/hooks/useGameState";
 import { roles } from "@/data/roles";
-import { Users, BookOpen, ChevronRight, Home, Settings } from "lucide-react";
+import { useGameTexts } from "@/data/gameTexts";
+import { Users, BookOpen, ChevronRight, Home, Settings, ArrowLeft } from "lucide-react";
 
 type GameScreen = 'start' | 'select' | 'playing' | 'complete' | 'roles' | 'faq' | 'textEditor';
 
 const Index = () => {
   const [currentScreen, setCurrentScreen] = useState<GameScreen>('start');
+  const { getTexts } = useGameTexts();
+  const texts = getTexts();
   const { 
     gameState, 
     currentAnswer, 
@@ -125,11 +128,11 @@ const Index = () => {
               <CardContent className="pt-6">
                 <div className="text-center mb-6">
                   <Badge variant="outline" className="mb-4">
-                    Projektkontorets roller
+                    {texts.aboutGameTitle}
                   </Badge>
-                  <h1 className="text-3xl font-bold mb-2">Så kan vi stötta dig</h1>
+                  <h1 className="text-3xl font-bold mb-2">{texts.rolesTitle}</h1>
                   <p className="text-muted-foreground max-w-2xl mx-auto">
-                    Projektkontoret har fyra nyckelroller som kan hjälpa dig genom hela projektlivscykeln
+                    {texts.rolesDescription}
                   </p>
                 </div>
               </CardContent>
@@ -174,6 +177,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-subtle p-4">
       <div className="max-w-4xl mx-auto">
+        <div className="mb-4">
+          <Button variant="outline" onClick={handleRestart} size="sm">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Tillbaka till start
+          </Button>
+        </div>
         <GameHeader gameState={gameState} />
         
         <div className="space-y-6">

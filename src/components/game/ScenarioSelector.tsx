@@ -11,7 +11,8 @@ interface ScenarioSelectorProps {
 
 export const ScenarioSelector = ({ onScenariosSelected }: ScenarioSelectorProps) => {
   const { getTexts } = useGameTexts();
-  const scenarios = getTexts().scenarios;
+  const texts = getTexts();
+  const scenarios = texts.scenarios;
   const [selectedScenarioIds, setSelectedScenarioIds] = useState<number[]>([]);
 
   const handleScenarioToggle = (scenarioId: number) => {
@@ -42,9 +43,9 @@ export const ScenarioSelector = ({ onScenariosSelected }: ScenarioSelectorProps)
   return (
     <Card className="w-full max-w-4xl mx-auto shadow-card">
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl">Välj scenarier att spela</CardTitle>
+        <CardTitle className="text-2xl">{texts.scenarioSelectorTitle}</CardTitle>
         <p className="text-muted-foreground">
-          Välj ett eller flera scenarier du vill träna på
+          {texts.scenarioSelectorDescription}
         </p>
       </CardHeader>
       
@@ -55,10 +56,10 @@ export const ScenarioSelector = ({ onScenariosSelected }: ScenarioSelectorProps)
             onClick={handleSelectAll}
             className="text-sm"
           >
-            {selectedScenarioIds.length === scenarios.length ? 'Avmarkera alla' : 'Välj alla'}
+            {selectedScenarioIds.length === scenarios.length ? texts.deselectAllButton : texts.selectAllButton}
           </Button>
           <span className="text-sm text-muted-foreground">
-            {selectedScenarioIds.length} av {scenarios.length} valda
+            {selectedScenarioIds.length} av {scenarios.length} {texts.selectedCountLabel}
           </span>
         </div>
 
@@ -95,7 +96,7 @@ export const ScenarioSelector = ({ onScenariosSelected }: ScenarioSelectorProps)
             disabled={selectedScenarioIds.length === 0}
             className="flex-1"
           >
-            Starta spel ({selectedScenarioIds.length} scenarier)
+            {texts.startSelectedButton} ({selectedScenarioIds.length} scenarier)
           </Button>
         </div>
       </CardContent>
