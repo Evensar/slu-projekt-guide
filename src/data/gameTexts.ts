@@ -81,6 +81,18 @@ export interface GameTexts {
   removeOptionButton: string;
   removeScenarioButton: string;
   
+  // FAQ
+  faq1Question: string;
+  faq1Answer: string;
+  faq2Question: string;
+  faq2Answer: string;
+  faq3Question: string;
+  faq3Answer: string;
+  faq4Question: string;
+  faq4Answer: string;
+  faq5Question: string;
+  faq5Answer: string;
+  
   // Common
   closeButton: string;
   backButton: string;
@@ -168,6 +180,18 @@ export const defaultGameTexts: GameTexts = {
   addScenarioButton: "Lägg till scenario",
   removeOptionButton: "Ta bort",
   removeScenarioButton: "Ta bort scenario",
+  
+  // FAQ
+  faq1Question: "När kontaktar jag projektkontoret?",
+  faq1Answer: "Kontakta oss tidigt när du har en projektidé eller behöver stöd med IT-relaterade förändringar. Vi hjälper dig att välja rätt form (projekt, uppdrag eller förstudie) och säkerställer att mål och nytta blir tydliga från start.",
+  faq2Question: "Vilka roller kan ni bemanna?",
+  faq2Answer: "Vi kan tillhandahålla projektledare, förvaltningsledare, testledare och kravanalytiker. Alla roller arbetar enligt SLU:s etablerade metoder och har erfarenhet av att arbeta nära verksamheten för att säkerställa bästa resultat.",
+  faq3Question: "Vad händer efter projektet?",
+  faq3Answer: "Vi säkerställer en kontrollerad överlämning till förvaltning. En förvaltningsledare tar ansvar för den långsiktiga hanteringen, upprätthåller systemet och följer upp att de avsedda effektmålen uppnås över tid.",
+  faq4Question: "Vad är SLU:s projektmodell?",
+  faq4Answer: "SLU:s projektmodell består av fyra huvudfaser: initiering, planering, genomförande och avslut. Varje fas har tydliga milstolpar och kvalitetskriterier som säkerställer strukturerat arbete mot uppsatta mål.",
+  faq5Question: "Hur fungerar IT-portföljen?",
+  faq5Answer: "Projektkontoret upprätthåller och följer upp SLU:s IT-portfölj som inkluderar pågående förvaltning, projekt, program, uppdrag och förstudier. Detta ger en helhetsbild och säkerställer rätt prioritering av resurser.",
   
   // Common
   closeButton: "Stäng",

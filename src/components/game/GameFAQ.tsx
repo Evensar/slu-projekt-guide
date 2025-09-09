@@ -1,33 +1,37 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { HelpCircle } from "lucide-react";
+import { useGameTexts } from "@/data/gameTexts";
 
 export const GameFAQ = () => {
+  const { getTexts } = useGameTexts();
+  const texts = getTexts();
+  
   const faqs = [
     {
       id: "when-contact",
-      question: "När kontaktar jag projektkontoret?",
-      answer: "Kontakta oss tidigt när du har en projektidé eller behöver stöd med IT-relaterade förändringar. Vi hjälper dig att välja rätt form (projekt, uppdrag eller förstudie) och säkerställer att mål och nytta blir tydliga från start."
+      question: texts.faq1Question,
+      answer: texts.faq1Answer
     },
     {
       id: "which-roles",
-      question: "Vilka roller kan ni bemanna?",
-      answer: "Vi kan tillhandahålla projektledare, förvaltningsledare, testledare och kravanalytiker. Alla roller arbetar enligt SLU:s etablerade metoder och har erfarenhet av att arbeta nära verksamheten för att säkerställa bästa resultat."
+      question: texts.faq2Question,
+      answer: texts.faq2Answer
     },
     {
       id: "after-project",
-      question: "Vad händer efter projektet?",
-      answer: "Vi säkerställer en kontrollerad överlämning till förvaltning. En förvaltningsledare tar ansvar för den långsiktiga hanteringen, upprätthåller systemet och följer upp att de avsedda effektmålen uppnås över tid."
+      question: texts.faq3Question,
+      answer: texts.faq3Answer
     },
     {
       id: "project-model",
-      question: "Vad är SLU:s projektmodell?",
-      answer: "SLU:s projektmodell består av fyra huvudfaser: initiering, planering, genomförande och avslut. Varje fas har tydliga milstolpar och kvalitetskriterier som säkerställer strukturerat arbete mot uppsatta mål."
+      question: texts.faq4Question,
+      answer: texts.faq4Answer
     },
     {
       id: "portfolio-management",
-      question: "Hur fungerar IT-portföljen?",
-      answer: "Projektkontoret upprätthåller och följer upp SLU:s IT-portfölj som inkluderar pågående förvaltning, projekt, program, uppdrag och förstudier. Detta ger en helhetsbild och säkerställer rätt prioritering av resurser."
+      question: texts.faq5Question,
+      answer: texts.faq5Answer
     }
   ];
 
@@ -36,10 +40,10 @@ export const GameFAQ = () => {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-primary" />
-          Frågor & svar
+          {texts.faqTitle}
         </CardTitle>
         <CardDescription>
-          Vanliga frågor om projektkontorets stöd och arbetssätt
+          {texts.faqDescription}
         </CardDescription>
       </CardHeader>
       <CardContent>

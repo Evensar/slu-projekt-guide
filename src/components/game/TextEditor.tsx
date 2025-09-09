@@ -248,6 +248,36 @@ export const TextEditor = ({ onClose }: TextEditorProps) => {
                 <div className="grid gap-4">
                   {renderTextInput("faqTitle", "FAQ-titel")}
                   {renderTextInput("faqDescription", "FAQ-beskrivning", true)}
+                  
+                  <div className="space-y-4 border-t pt-4">
+                    <h4 className="text-md font-medium">FAQ 1</h4>
+                    {renderTextInput("faq1Question", "Fråga 1")}
+                    {renderTextInput("faq1Answer", "Svar 1", true)}
+                  </div>
+                  
+                  <div className="space-y-4 border-t pt-4">
+                    <h4 className="text-md font-medium">FAQ 2</h4>
+                    {renderTextInput("faq2Question", "Fråga 2")}
+                    {renderTextInput("faq2Answer", "Svar 2", true)}
+                  </div>
+                  
+                  <div className="space-y-4 border-t pt-4">
+                    <h4 className="text-md font-medium">FAQ 3</h4>
+                    {renderTextInput("faq3Question", "Fråga 3")}
+                    {renderTextInput("faq3Answer", "Svar 3", true)}
+                  </div>
+                  
+                  <div className="space-y-4 border-t pt-4">
+                    <h4 className="text-md font-medium">FAQ 4</h4>
+                    {renderTextInput("faq4Question", "Fråga 4")}
+                    {renderTextInput("faq4Answer", "Svar 4", true)}
+                  </div>
+                  
+                  <div className="space-y-4 border-t pt-4">
+                    <h4 className="text-md font-medium">FAQ 5</h4>
+                    {renderTextInput("faq5Question", "Fråga 5")}
+                    {renderTextInput("faq5Answer", "Svar 5", true)}
+                  </div>
                 </div>
               </div>
 

@@ -17,8 +17,13 @@ export const GameStart = ({ onStartGame }: GameStartProps) => {
         {/* Hero Section */}
         <Card className="text-center shadow-card animate-fade-in">
           <CardHeader className="pb-4">
-            <div className="mb-4">
-              <Badge variant="outline" className="mb-4 animate-bounce-in">
+            <div className="mb-4 flex flex-col items-center space-y-4">
+              <img 
+                src="/lovable-uploads/aae14649-330e-491c-8e2b-f916101eaffa.png" 
+                alt="SLU logotyp"
+                className="h-20 w-auto"
+              />
+              <Badge variant="outline" className="animate-bounce-in">
                 {texts.gameTitle}
               </Badge>
             </div>
