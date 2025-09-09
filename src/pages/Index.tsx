@@ -81,21 +81,39 @@ const Index = () => {
         <GameStart onStartGame={handleStartGame} />
         
         {/* Navigation Footer */}
-        <div className="bg-background border-t border-border py-4">
+        <div className="bg-background border-t border-border py-8">
           <div className="max-w-4xl mx-auto px-4">
-            <div className="flex flex-wrap justify-center gap-3">
-              <Button variant="outline" size="sm" onClick={handleShowRoles}>
-                <Users className="w-4 h-4 mr-2" />
-                Roller & stöd
-              </Button>
-              <Button variant="outline" size="sm" onClick={handleShowFAQ}>
-                <BookOpen className="w-4 h-4 mr-2" />
-                Frågor & svar
-              </Button>
-              <Button variant="ghost" size="sm" onClick={handleShowTextEditor}>
-                <Settings className="w-4 h-4 mr-2" />
-                Redigera texter
-              </Button>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Left column - Text Editor */}
+              <div className="space-y-4">
+                <Button variant="ghost" size="sm" onClick={handleShowTextEditor} className="w-full justify-start">
+                  <Settings className="w-4 h-4 mr-2" />
+                  Redigera texter
+                </Button>
+              </div>
+              
+              {/* Right column - About section with links */}
+              <div className="space-y-4">
+                <h3 className="font-semibold text-lg">{texts.learningGoalsTitle}</h3>
+                <div className="space-y-2">
+                  <a 
+                    href="https://internt.slu.se/stod-service/admin-stod/it/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 underline block"
+                  >
+                    {texts.readMoreAboutProjectOffice}
+                  </a>
+                  <Button variant="outline" size="sm" onClick={handleShowRoles} className="w-full justify-start">
+                    <Users className="w-4 h-4 mr-2" />
+                    Roller & stöd
+                  </Button>
+                  <Button variant="outline" size="sm" onClick={handleShowFAQ} className="w-full justify-start">
+                    <BookOpen className="w-4 h-4 mr-2" />
+                    Frågor & svar
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

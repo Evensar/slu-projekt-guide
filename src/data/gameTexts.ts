@@ -93,6 +93,9 @@ export interface GameTexts {
   faq5Question: string;
   faq5Answer: string;
   
+  // Links
+  readMoreAboutProjectOffice: string;
+  
   // Common
   closeButton: string;
   backButton: string;
@@ -192,6 +195,9 @@ export const defaultGameTexts: GameTexts = {
   faq4Answer: "SLU:s projektmodell består av fyra huvudfaser: initiering, planering, genomförande och avslut. Varje fas har tydliga milstolpar och kvalitetskriterier som säkerställer strukturerat arbete mot uppsatta mål.",
   faq5Question: "Hur fungerar IT-portföljen?",
   faq5Answer: "Projektkontoret upprätthåller och följer upp SLU:s IT-portfölj som inkluderar pågående förvaltning, projekt, program, uppdrag och förstudier. Detta ger en helhetsbild och säkerställer rätt prioritering av resurser.",
+  
+  // Links
+  readMoreAboutProjectOffice: "Läs mer om projektkontoret",
   
   // Common
   closeButton: "Stäng",
