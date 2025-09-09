@@ -83,6 +83,22 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
           </CardContent>
         </Card>
 
+        {/* Navigation Buttons */}
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button variant="outline" size="sm" onClick={onShowRoles}>
+            <Users className="w-4 h-4 mr-2" />
+            Roller & stöd
+          </Button>
+          <Button variant="outline" size="sm" onClick={onShowFAQ}>
+            <BookOpen className="w-4 h-4 mr-2" />
+            Frågor & svar
+          </Button>
+          <Button variant="ghost" size="sm" onClick={onShowTextEditor}>
+            <Settings className="w-4 h-4 mr-2" />
+            Redigera texter
+          </Button>
+        </div>
+
         {/* Learning Goals */}
         <Card className="animate-slide-up">
           <CardHeader>
@@ -141,34 +157,20 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
              {/* Action buttons within the card */}
              <div className="mt-6 pt-6 border-t border-border">
                <div className="flex flex-wrap justify-center gap-3">
-                 <a 
-                   href="https://internt.slu.se/stod-service/admin-stod/it/" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   className="text-primary hover:text-primary/80 underline"
-                 >
-                   {texts.readMoreAboutProjectOffice}
-                 </a>
+                 <Button asChild variant="outline" size="sm">
+                   <a 
+                     href="https://internt.slu.se/stod-service/admin-stod/it/" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                   >
+                     {texts.readMoreAboutProjectOffice}
+                   </a>
+                 </Button>
                </div>
              </div>
            </CardContent>
          </Card>
 
-         {/* Navigation Buttons */}
-         <div className="flex flex-wrap justify-center gap-3">
-           <Button variant="outline" size="sm" onClick={onShowRoles}>
-             <Users className="w-4 h-4 mr-2" />
-             Roller & stöd
-           </Button>
-           <Button variant="outline" size="sm" onClick={onShowFAQ}>
-             <BookOpen className="w-4 h-4 mr-2" />
-             Frågor & svar
-           </Button>
-           <Button variant="ghost" size="sm" onClick={onShowTextEditor}>
-             <Settings className="w-4 h-4 mr-2" />
-             Redigera texter
-           </Button>
-         </div>
       </div>
     </div>
   );
