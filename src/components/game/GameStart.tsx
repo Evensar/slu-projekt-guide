@@ -1,14 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Play, BookOpen, Users, Target } from "lucide-react";
+import { Play, BookOpen, Users, Target, Settings } from "lucide-react";
 import { useGameTexts } from "@/data/gameTexts";
 
 interface GameStartProps {
   onStartGame: () => void;
+  onShowRoles: () => void;
+  onShowFAQ: () => void;
+  onShowTextEditor: () => void;
 }
 
-export const GameStart = ({ onStartGame }: GameStartProps) => {
+export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEditor }: GameStartProps) => {
   const { getTexts } = useGameTexts();
   const texts = getTexts();
   return (
@@ -127,13 +130,41 @@ export const GameStart = ({ onStartGame }: GameStartProps) => {
                     <span className="text-accent mt-1">•</span>
                     {texts.howItWorks3}
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent mt-1">•</span>
-                    {texts.howItWorks4}
-                  </li>
-                </ul>
-              </div>
-            </div>
+                   <li className="flex items-start gap-2">
+                     <span className="text-accent mt-1">•</span>
+                     {texts.howItWorks4}
+                   </li>
+                 </ul>
+               </div>
+             </div>
+             
+             {/* Action buttons within the card */}
+             <div className="mt-6 pt-6 border-t border-border">
+               <div className="flex flex-wrap justify-center gap-3">
+                 <a 
+                   href="https://internt.slu.se/stod-service/admin-stod/it/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   className="text-primary hover:text-primary/80 underline"
+                 >
+                   {texts.readMoreAboutProjectOffice}
+                 </a>
+               </div>
+               <div className="flex flex-wrap justify-center gap-3 mt-4">
+                 <Button variant="outline" size="sm" onClick={onShowRoles}>
+                   <Users className="w-4 h-4 mr-2" />
+                   Roller & stöd
+                 </Button>
+                 <Button variant="outline" size="sm" onClick={onShowFAQ}>
+                   <BookOpen className="w-4 h-4 mr-2" />
+                   Frågor & svar
+                 </Button>
+                 <Button variant="ghost" size="sm" onClick={onShowTextEditor}>
+                   <Settings className="w-4 h-4 mr-2" />
+                   Redigera texter
+                 </Button>
+               </div>
+             </div>
           </CardContent>
         </Card>
       </div>
