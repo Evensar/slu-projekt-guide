@@ -150,23 +150,25 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
                    {texts.readMoreAboutProjectOffice}
                  </a>
                </div>
-               <div className="flex flex-wrap justify-center gap-3 mt-4">
-                 <Button variant="outline" size="sm" onClick={onShowRoles}>
-                   <Users className="w-4 h-4 mr-2" />
-                   Roller & stöd
-                 </Button>
-                 <Button variant="outline" size="sm" onClick={onShowFAQ}>
-                   <BookOpen className="w-4 h-4 mr-2" />
-                   Frågor & svar
-                 </Button>
-                 <Button variant="ghost" size="sm" onClick={onShowTextEditor}>
-                   <Settings className="w-4 h-4 mr-2" />
-                   Redigera texter
-                 </Button>
-               </div>
              </div>
-          </CardContent>
-        </Card>
+           </CardContent>
+         </Card>
+
+         {/* Navigation Buttons */}
+         <div className="flex flex-wrap justify-center gap-3">
+           <Button variant="outline" size="sm" onClick={onShowRoles}>
+             <Users className="w-4 h-4 mr-2" />
+             Roller & stöd
+           </Button>
+           <Button variant="outline" size="sm" onClick={onShowFAQ}>
+             <BookOpen className="w-4 h-4 mr-2" />
+             Frågor & svar
+           </Button>
+           <Button variant="ghost" size="sm" onClick={onShowTextEditor}>
+             <Settings className="w-4 h-4 mr-2" />
+             Redigera texter
+           </Button>
+         </div>
       </div>
     </div>
   );
