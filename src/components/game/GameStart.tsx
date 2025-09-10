@@ -24,7 +24,7 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
               <img 
                 src="/lovable-uploads/aae14649-330e-491c-8e2b-f916101eaffa.png" 
                 alt="SLU logotyp"
-                className="h-20 w-auto"
+                className="h-40 w-auto"
               />
               <Badge variant="outline" className="animate-bounce-in">
                 {texts.gameTitle}
