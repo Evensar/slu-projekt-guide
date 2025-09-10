@@ -96,14 +96,14 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
         </div>
 
         {/* Learning Goals */}
-        <Card className="animate-slide-up text-center">
+        <Card className="animate-slide-up">
           <CardHeader>
-            <CardTitle className="flex items-center justify-center gap-2">
+            <CardTitle className="flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-primary" />
               {texts.learningGoalsTitle}
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="text-center">
             <div className="grid md:grid-cols-2 gap-6 text-left">
               <div>
                 <h3 className="font-medium mb-3">{texts.learningGoalsSubtitle}</h3>
