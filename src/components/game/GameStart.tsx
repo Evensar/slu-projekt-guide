@@ -93,6 +93,15 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
             <BookOpen className="w-4 h-4 mr-2" />
             Frågor & svar
           </Button>
+          <Button asChild variant="outline" size="sm">
+            <a 
+              href="https://internt.slu.se/stod-service/admin-stod/it/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              {texts.readMoreAboutProjectOffice}
+            </a>
+          </Button>
         </div>
 
         {/* Learning Goals */}
@@ -152,16 +161,7 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
              
              {/* Action buttons within the card */}
              <div className="mt-6 pt-6 border-t border-border">
-               <div className="flex flex-wrap justify-between items-center gap-3">
-                 <Button asChild variant="outline" size="sm">
-                   <a 
-                     href="https://internt.slu.se/stod-service/admin-stod/it/" 
-                     target="_blank" 
-                     rel="noopener noreferrer"
-                   >
-                     {texts.readMoreAboutProjectOffice}
-                   </a>
-                 </Button>
+               <div className="flex justify-center">
                  <Button variant="ghost" size="sm" onClick={onShowTextEditor}>
                    <Settings className="w-4 h-4 mr-2" />
                    Redigera texter
