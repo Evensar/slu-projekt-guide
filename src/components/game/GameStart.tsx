@@ -30,7 +30,7 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
                 {texts.gameTitle}
               </Badge>
             </div>
-            <CardTitle className="text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <CardTitle className="text-3xl md:text-4xl font-bold leading-tight bg-gradient-primary bg-clip-text text-transparent">
               {texts.gameMainTitle}
             </CardTitle>
             <CardDescription className="text-lg max-w-2xl mx-auto mt-4">
