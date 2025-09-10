@@ -93,22 +93,18 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
             <BookOpen className="w-4 h-4 mr-2" />
             Frågor & svar
           </Button>
-          <Button variant="ghost" size="sm" onClick={onShowTextEditor}>
-            <Settings className="w-4 h-4 mr-2" />
-            Redigera texter
-          </Button>
         </div>
 
         {/* Learning Goals */}
-        <Card className="animate-slide-up">
+        <Card className="animate-slide-up text-center">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center justify-center gap-2">
               <BookOpen className="w-5 h-5 text-primary" />
               {texts.learningGoalsTitle}
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 text-left">
               <div>
                 <h3 className="font-medium mb-3">{texts.learningGoalsSubtitle}</h3>
                 <ul className="space-y-2 text-sm">
@@ -156,7 +152,7 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
              
              {/* Action buttons within the card */}
              <div className="mt-6 pt-6 border-t border-border">
-               <div className="flex flex-wrap justify-center gap-3">
+               <div className="flex flex-wrap justify-between items-center gap-3">
                  <Button asChild variant="outline" size="sm">
                    <a 
                      href="https://internt.slu.se/stod-service/admin-stod/it/" 
@@ -165,6 +161,10 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
                    >
                      {texts.readMoreAboutProjectOffice}
                    </a>
+                 </Button>
+                 <Button variant="ghost" size="sm" onClick={onShowTextEditor}>
+                   <Settings className="w-4 h-4 mr-2" />
+                   Redigera texter
                  </Button>
                </div>
              </div>
