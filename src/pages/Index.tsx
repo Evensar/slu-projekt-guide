@@ -10,6 +10,7 @@ import { RoleCard } from "@/components/game/RoleCard";
 import { ScenarioSelector } from "@/components/game/ScenarioSelector";
 import { GameFAQ } from "@/components/game/GameFAQ";
 import { TextEditor } from "@/components/game/TextEditor";
+import { TextEditorLogin } from "@/components/game/TextEditorLogin";
 import { Scenario } from "@/types/game";
 import { useGameState } from "@/hooks/useGameState";
 import { roles } from "@/data/roles";
@@ -23,10 +24,31 @@ interface GameStartProps {
   onShowTextEditor: () => void;
 }
 
-type GameScreen = 'start' | 'select' | 'playing' | 'complete' | 'roles' | 'faq' | 'textEditor';
+type GameScreen = 'start' | 'select' | 'playing' | 'complete' | 'roles' | 'faq' | 'textEditor' | 'textEditorLogin';
 
 const Index = () => {
   const [currentScreen, setCurrentScreen] = useState<GameScreen>('start');
+  
+  // Check if user is authenticated for text editor (session expires after 1 hour)
+  const isTextEditorAuthenticated = () => {
+    const authState = localStorage.getItem("textEditorAuth");
+    const authTime = localStorage.getItem("textEditorAuthTime");
+    
+    if (!authState || !authTime) return false;
+    
+    const now = Date.now();
+    const authTimestamp = parseInt(authTime);
+    const oneHour = 60 * 60 * 1000; // 1 hour in milliseconds
+    
+    if (now - authTimestamp > oneHour) {
+      // Session expired, clear auth
+      localStorage.removeItem("textEditorAuth");
+      localStorage.removeItem("textEditorAuthTime");
+      return false;
+    }
+    
+    return authState === "true";
+  };
   const { getTexts } = useGameTexts();
   const texts = getTexts();
   const { 
@@ -75,6 +97,14 @@ const Index = () => {
   };
 
   const handleShowTextEditor = () => {
+    if (isTextEditorAuthenticated()) {
+      setCurrentScreen('textEditor');
+    } else {
+      setCurrentScreen('textEditorLogin');
+    }
+  };
+
+  const handleTextEditorLoginSuccess = () => {
     setCurrentScreen('textEditor');
   };
 
@@ -158,6 +188,15 @@ const Index = () => {
           <GameFAQ />
         </div>
       </div>
+    );
+  }
+
+  if (currentScreen === 'textEditorLogin') {
+    return (
+      <TextEditorLogin 
+        onClose={handleBackToStart} 
+        onLoginSuccess={handleTextEditorLoginSuccess}
+      />
     );
   }
 
