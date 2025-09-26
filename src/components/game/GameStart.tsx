@@ -22,7 +22,7 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
           <CardHeader className="pb-4">
             <div className="mb-4 flex flex-col items-center space-y-4">
               <img 
-                src="/slu-logo.png" 
+                src="/slu-projekt-guide/slu-logo.png" 
                 alt="SLU logotyp"
                 className="h-40 w-auto"
               />
