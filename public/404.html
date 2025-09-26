@@ -18,21 +18,17 @@
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
     
     <script>
-      // GitHub Pages SPA redirect
-      var pathSegmentsToKeep = 1;
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+      // Simple redirect to index.html for GitHub Pages SPA support
+      window.location.replace('/slu-projekt-guide/');
     </script>
   </head>
 
   <body>
-    <div id="root"></div>
-    <script type="module" src="/slu-projekt-guide/assets/index-iU87tE9L.js"></script>
+    <div id="root">
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>Omdirigerar...</h1>
+        <p>Om du inte omdirigeras automatiskt, <a href="/slu-projekt-guide/">klicka här</a>.</p>
+      </div>
+    </div>
   </body>
 </html>
