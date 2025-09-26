@@ -21,21 +21,11 @@ export const GameStart = ({ onStartGame, onShowRoles, onShowFAQ, onShowTextEdito
         <Card className="text-center shadow-card animate-fade-in">
           <CardHeader className="pb-4">
             <div className="mb-4 flex flex-col items-center space-y-4">
-              <div className="flex items-center justify-center h-40 w-80 bg-white rounded-lg shadow-lg p-6">
-                <div className="flex items-center space-x-4">
-                  <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 bg-green-700 rounded-full flex items-center justify-center mb-2">
-                      <div className="w-12 h-12 bg-green-600 rounded-full"></div>
-                    </div>
-                    <div className="w-16 h-16 bg-red-800 rounded-full flex items-center justify-center">
-                      <div className="w-12 h-12 bg-red-700 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div className="text-4xl font-bold text-green-700 font-serif">
-                    SLU
-                  </div>
-                </div>
-              </div>
+              <img 
+                src="/slu-logo.png" 
+                alt="SLU logotyp"
+                className="h-40 w-auto"
+              />
               <Badge variant="outline" className="animate-bounce-in">
                 {texts.gameTitle}
               </Badge>
