@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projektkontoret på SLU – så stöttar vi dina projekt</title>
+    <meta name="description" content="Lär dig om projektkontorets stöd på SLU genom ett interaktivt spel. Upptäck roller, arbetssätt och system för effektiva projekt." />
+    <meta name="author" content="SLU Projektkontor" />
+    <meta name="keywords" content="SLU, projektledning, projektkontor, utbildning, IT-förvaltning, projektmodell" />
+
+    <meta property="og:title" content="Projektkontoret på SLU – så stöttar vi dina projekt" />
+    <meta property="og:description" content="Lär dig om projektkontorets stöd på SLU genom ett interaktivt spel. Upptäck roller, arbetssätt och system för effektiva projekt." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <script>
+      // GitHub Pages SPA redirect
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/slu-projekt-guide/src/main.tsx"></script>
+  </body>
+</html>
