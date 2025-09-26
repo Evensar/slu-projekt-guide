@@ -1,8 +1,10 @@
-# Welcome to your Lovable project
+# SLU Projektkontor - Interaktiv Projektguide
 
-## Project info
+En interaktiv webbapplikation som hjälper användare att lära sig om projektkontorets stöd på SLU genom ett spelbaserat lärande.
 
-**URL**: https://lovable.dev/projects/9fdfff8d-3041-463a-aa96-f535a3266afa
+## Projektinfo
+
+**GitHub Pages URL**: https://[ditt-användarnamn].github.io/slu-projekt-guide/
 
 ## How can I edit this code?
 
@@ -60,9 +62,30 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Hur man deployar till GitHub Pages
 
-Simply open [Lovable](https://lovable.dev/projects/9fdfff8d-3041-463a-aa96-f535a3266afa) and click on Share -> Publish.
+### Automatisk deployment
+Projektet är konfigurerat för automatisk deployment via GitHub Actions. När du pushar till `main` branchen kommer appen automatiskt att byggas och deployas till GitHub Pages.
+
+### Manuell deployment
+Du kan också deploya manuellt:
+
+```sh
+# Installera dependencies
+npm install
+
+# Bygg projektet
+npm run build
+
+# Deploya till GitHub Pages
+npm run deploy
+```
+
+### Konfigurera GitHub Pages
+1. Gå till ditt repository på GitHub
+2. Klicka på "Settings" → "Pages"
+3. Under "Source", välj "GitHub Actions"
+4. Appen kommer att vara tillgänglig på `https://[ditt-användarnamn].github.io/slu-projekt-guide/`
 
 ## Can I connect a custom domain to my Lovable project?
 
